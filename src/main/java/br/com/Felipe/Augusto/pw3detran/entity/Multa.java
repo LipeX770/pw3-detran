@@ -17,29 +17,32 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table (name = "TBL_VEICULO")
-public class Veiculo {
+@Table (name = "TBL_MULTA")
+public class Multa {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idMulta")
+	private int id_multa;
+	
+	@Column(name = "dataAplicacao")
+	public LocalDate Data;
+	
+	@Column(name = "vencimento")
+	public LocalDate Vencimento;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "estadoMulta")
+	public String Estado_Multa;
+	
+	@Column(name = "orgao")
+	public String orgao;
+	
+	@OneToMany
 	@Column(name = "idVeiculo")
-	private int id_veiculo;
+	public int id_veiculo;
 	
-	@Column(name = "renavam")
-	public String renavam;
-	
-	@Column(name = "placa")
-	public String placa;
-	
-	@Column(name = "modelo")
-	public String modelo;
-	
+	@OneToMany
 	@Column(name = "idPessoa")
-	public int  proprietario;
-	
-	@Column(name = "ano")
-	private int ano;
-	
-	
-
+	public int proprietario;
 }

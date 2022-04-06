@@ -14,12 +14,13 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@Table (name = "TBL_PESSOA")
 public class Pessoa
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idPessoa")
-	public Long id;
+	public int id;
 	
 	@Column (name = "nome")
 	public String nome;
